@@ -9,13 +9,14 @@
   <title>前端模块化（二） | ......</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="综述：    Commonjs,AMD,CMD,ES6的模块化总结">
+<meta name="keywords" content="模块化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端模块化（二）">
 <meta property="og:url" content="http://yoursite.com/2018/08/27/前端模块化（二）/index.html">
 <meta property="og:site_name" content="......">
 <meta property="og:description" content="综述：    Commonjs,AMD,CMD,ES6的模块化总结">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-27T07:03:25.745Z">
+<meta property="og:updated_time" content="2018-08-27T07:04:37.959Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端模块化（二）">
 <meta name="twitter:description" content="综述：    Commonjs,AMD,CMD,ES6的模块化总结">
@@ -198,7 +199,7 @@ module.exports = function () { //[Function]
 </code></pre><blockquote>
 <p>（2)一个文件不能写多个module.exports如果写多个，对外暴露的接口是最后一个module.exports<br>（3）模块如果没有指定使用module.exports 或者exports 对外暴露接口时，在其他文件就引用该模块，得到的是一个空对象{}</p>
 </blockquote>
-<p>仔细看上面的代码，您会注意到 require 是同步的。模块系统需要同步读取模块文件内容，并编译执行以得到模块接口。<br>然而， 这在浏览器端问题多多。<br>浏览器端，加载 JavaScript 最佳、最容易的方式是在 document 中插入<script>标签。但脚本标签天生异步，传统 CommonJS 模块在浏览器环境中无法正常加载。</p>
+<p>仔细看上面的代码，您会注意到 require 是同步的。模块系统需要同步读取模块文件内容，并编译执行以得到模块接口。<br>然而， 这在浏览器端问题多多。<br>浏览器端，加载 JavaScript 最佳、最容易的方式是在 document中插入<code>&lt;script&gt;</code>标签。但脚本标签天生异步，传统 CommonJS 模块在浏览器环境中无法正常加载。</p>
 <p>解决思路是，用一套标准模板来封装模块定义：</p>
 <h3 id="2-AMD"><a href="#2-AMD" class="headerlink" title="2.AMD"></a>2.AMD</h3><p>Asynchronous Module Definition，称为异步模块。<br>由于不是js原生支持，使用AMD规范进行页面开发需要用到对应的函数库，也就是大名鼎鼎的RequireJS，实际上AMD是RequireJS在推广过程中对模块定义的规范化的产出。<br>requireJS主要解决两个问题：<br>1 多个js文件可能有依赖关系，被依赖的文件需要早于依赖它的文件加载到浏览器。<br>2 js加载的时候浏览器会停止页面渲染，加载文件愈多，页面失去响应的时间愈长。</p>
 <blockquote>
@@ -256,7 +257,7 @@ module._count = 10;
 <blockquote>
 <p> 详情见模块化（一）</p>
 </blockquote>
-</script></p>
+
       
 
       
@@ -285,6 +286,17 @@ module._count = 10;
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">模块化</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -458,15 +470,15 @@ module._count = 10;
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hoc-react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
