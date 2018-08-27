@@ -6,26 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>高阶组件入门（2) | ......</title>
+  <title>前端模块化（二） | ......</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="（一）前篇回顾上篇文章React高阶组件操作入门（一）介绍了高阶组件的实现方式之一：PP（属性代理）。 其实在第一篇提到，高阶组件的使用就是涉及到两个问题： 1.高阶组件EnhanceComponent能否将props,state,function传递给wrappedComponent？2.组件wrappedComponent能否将props,state,function传递给EnhancedCo">
-<meta name="keywords" content="react,hoc-react">
+  <meta name="description" content="综述：    Commonjs,AMD,CMD,ES6的模块化总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="高阶组件入门（2)">
-<meta property="og:url" content="http://yoursite.com/2018/06/25/react_hoc_2/index.html">
+<meta property="og:title" content="前端模块化（二）">
+<meta property="og:url" content="http://yoursite.com/2018/08/27/前端模块化（二）/index.html">
 <meta property="og:site_name" content="......">
-<meta property="og:description" content="（一）前篇回顾上篇文章React高阶组件操作入门（一）介绍了高阶组件的实现方式之一：PP（属性代理）。 其实在第一篇提到，高阶组件的使用就是涉及到两个问题： 1.高阶组件EnhanceComponent能否将props,state,function传递给wrappedComponent？2.组件wrappedComponent能否将props,state,function传递给EnhancedCo">
+<meta property="og:description" content="综述：    Commonjs,AMD,CMD,ES6的模块化总结">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://img.blog.csdn.net/20171107205438033?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171107205535216?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171107211149475?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171107211424840?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171107211543953?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2018-07-14T10:33:43.407Z">
+<meta property="og:updated_time" content="2018-08-27T07:03:25.745Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="高阶组件入门（2)">
-<meta name="twitter:description" content="（一）前篇回顾上篇文章React高阶组件操作入门（一）介绍了高阶组件的实现方式之一：PP（属性代理）。 其实在第一篇提到，高阶组件的使用就是涉及到两个问题： 1.高阶组件EnhanceComponent能否将props,state,function传递给wrappedComponent？2.组件wrappedComponent能否将props,state,function传递给EnhancedCo">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20171107205438033?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="前端模块化（二）">
+<meta name="twitter:description" content="综述：    Commonjs,AMD,CMD,ES6的模块化总结">
   
     <link rel="alternative" href="/atom.xml" title="......" type="application/atom+xml">
   
@@ -147,79 +140,123 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-react_hoc_2" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-前端模块化（二）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      高阶组件入门（2)
+      前端模块化（二）
     </h1>
   
 
         
-        <a href="/2018/06/25/react_hoc_2/" class="archive-article-date">
-  	<time datetime="2018-06-25T12:44:11.109Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
+        <a href="/2018/08/27/前端模块化（二）/" class="archive-article-date">
+  	<time datetime="2018-08-27T06:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="（一）前篇回顾"><a href="#（一）前篇回顾" class="headerlink" title="（一）前篇回顾"></a>（一）前篇回顾</h2><p>上篇文章<a href="https://github.com/iuap-design/blog/issues/241" target="_blank" rel="noopener">React高阶组件操作入门（一）</a>介绍了高阶组件的实现方式之一：PP（属性代理）。</p>
-<p>其实在第一篇提到，高阶组件的使用就是涉及到两个问题：</p>
-<p>1.高阶组件EnhanceComponent能否将props,state,function传递给wrappedComponent？<br>2.组件wrappedComponent能否将props,state,function传递给EnhancedComponent？</p>
-<a id="more"></a>
-<p>在第一篇文章就是解答了第一个问题，答案是能！！HOC将HOCd的props,state,function,当作props传给WrappedComponent组件，WrappedComponent通过this.props取到这些内容，如下图：</p>
-<pre><code>图1-1 EnhacedComponent组件传值
-</code></pre><p><img src="http://img.blog.csdn.net/20171107205438033?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>图1-2 WrappedComponent组件接收
-</code></pre><p><img src="http://img.blog.csdn.net/20171107205535216?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="（二）Inheritance-Inversion（反向继承）"><a href="#（二）Inheritance-Inversion（反向继承）" class="headerlink" title="（二）Inheritance Inversion（反向继承）"></a>（二）Inheritance Inversion（反向继承）</h2><p><strong>反向继承可以解决上述的第二个疑问：</strong><br>组件wrappedComponent能否将props,state,function传递给EnhancedComponent？</p>
-<p>这里是指EnhacedComponent继承了WrappedComponent组件的生命周期、state和function。按照上篇文章提到的两点用途出发来深入理解II。</p>
-<ul>
-<li>渲染劫持（Render Highjacking） </li>
-<li>操作 state</li>
-</ul>
-<p> （2.1）渲染劫持</p>
+        <p>综述：<br>    Commonjs,AMD,CMD,ES6的模块化总结<br><a id="more"></a></p>
+<h2 id="前端的四种模块化方案-webpack-require-js-seajs-browserify）"><a href="#前端的四种模块化方案-webpack-require-js-seajs-browserify）" class="headerlink" title="前端的四种模块化方案(webpack/require.js/seajs/browserify）"></a>前端的四种模块化方案(webpack/require.js/seajs/browserify）</h2><p>JS不具备原生的模块化技能，因此需要采用第三方开发的模块依赖处理库来实现模块化：CommonJS、AMD、CMD、ES6</p>
+<p>这四种方案的实现对比：</p>
 <blockquote>
-<p>本质就是EnhacedComponent继承了WrappedComponent组件的生命周期函数，尤其是render()函数</p>
+<p>CommonJS:  exports + require </p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//Wrappedcomponent</span><br><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line">class Usual extends Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">    this.state = &#123;</span><br><span class="line">      usual: &apos;usual&apos;,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    console.log(&apos;didMount&apos;)</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  render() &#123;</span><br><span class="line">    console.log(this.props);</span><br><span class="line"></span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        Usual</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default Usual;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//下面是HOC</span><br><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line">const iiHoc = WrappedComponent =&gt; class extends WrappedComponent &#123;</span><br><span class="line">	  constructor(props)&#123;</span><br><span class="line">	  	super(props);</span><br><span class="line">	  	this.state = &#123;</span><br><span class="line">	  		...this.state,</span><br><span class="line">	  	&#125;</span><br><span class="line">	  &#125;</span><br><span class="line">	</span><br><span class="line">	  alertFunc = () =&gt;&#123;</span><br><span class="line">	  	alert(&quot;HOC&quot;);</span><br><span class="line">	  &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">      </span><br><span class="line">      return &lt;div&gt;&#123;super.render()&#125;&lt;/div&gt;</span><br><span class="line">     </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">export default iiHoc;</span><br></pre></td></tr></table></figure>
-<p>这样会正常的渲染出来 Usual</p>
-<p>（2.2）操作 state</p>
 <blockquote>
-<p>本质就是EnhacedComponent继承了WrappedComponent组件的state</p>
+<p>AMD: define + require </p>
 </blockquote>
-<pre><code>如图2-2-1通过this.state获取到WrappedComponent的state
-</code></pre><p><img src="http://img.blog.csdn.net/20171107211149475?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <blockquote>
-<p>但是，关键是在EnhacedComponent的constructor中没有定义自己的state！！</p>
+<p>CMD：define+require+exports/exports </p>
 </blockquote>
-<p>若是定义就会出现的问题如下图2-2-2所示</p>
-<pre><code>图2-2-2 EnhancedComponent的constructor中定义state,那么this.state的取值
-</code></pre><p><img src="http://img.blog.csdn.net/20171107211424840?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>EnhacedComponent的state覆盖了Wrapped Component的state。这时候的怎么让两者并存呢？如下图2-2-3所示</p>
-<pre><code>图2-2-3 EnhacedComponent的state与WrappedComponent的state并存
-</code></pre><p><img src="http://img.blog.csdn.net/20171107211543953?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>（2.3）function的继承<br>这里就不多说，通过this.functionName()就可以调用到WrappedComponent中的方法。<strong>但是有一个注意的：若是EnhancedComponent中的方法与WrappedComponent的方法重名，那么EnhacedComponent函数覆盖Wrapped Component函数。</strong></p>
-<h2 id="（三）此处看一下父组件与高阶组件对比"><a href="#（三）此处看一下父组件与高阶组件对比" class="headerlink" title="（三）此处看一下父组件与高阶组件对比"></a>（三）此处看一下父组件与高阶组件对比</h2><p>有些同学可能会觉得高阶组件有些类似父组件的使用。例如，我们完全可以把高阶组件中的逻辑放到一个父组件中去执行，执行完成的结果再传递给子组件。从逻辑的执行流程上来看，高阶组件确实和父组件比较相像，但是高阶组件强调的是逻辑的抽象。高阶组件是一个函数，函数关注的是逻辑；父组件是一个组件，组件主要关注的是UI/DOM。如果逻辑是与DOM直接相关的，那么这部分逻辑适合放到父组件中实现；如果逻辑是与DOM不直接相关的，那么这部分逻辑适合使用高阶组件抽象，如数据校验、请求发送等。</p>
-<h2 id="（四）使用高阶组件遇到的问题"><a href="#（四）使用高阶组件遇到的问题" class="headerlink" title="（四）使用高阶组件遇到的问题"></a>（四）使用高阶组件遇到的问题</h2><p>（4.1）静态方法丢失<br>无论PP还是II的方式，WrappedComponent的静态方法都不会复制，如果要用需要我们单独复制。因为高阶组件返回的新组件，是不包含被包装组件的静态方法。<br>具体的解决方案如下</p>
+<p>Ps. CommonJS 和AMD上下的require也不是一样的,cmd与amd的文字一样内容差了好多参数） </p>
 <blockquote>
-<p><a href="https://segmentfault.com/a/1190000010845410" target="_blank" rel="noopener">静态方法解决方式</a></p>
+<p>ES6: export + import</p>
 </blockquote>
-<p>（4.2）refs不会传递。<br>意思就是HOC里指定的ref，并不会传递到子组件，如果你要使用最好写回调函数通过props传下去。</p>
-<p>（4.3）不要在render方法内部使用高阶组件。<br>简单来说react的差分算法会去比较 NowElement === OldElement, 来决定要不要替换这个elementTree。。因为高阶组件每次都会返回一个新的组件，在render中使用会导致每次渲染出来的组件都不相等（===），于是每次render，组件都会卸载（unmount），然后重新挂载（mount），既影响了效率，又丢失了组件及其子组件的状态。高阶组件最适合使用的地方是在组件定义的外部，这样就不会受到组件生命周期的影响了。</p>
-<p>（4.4）最重要的原则就是，注意高阶组件不会修改子组件，也不拷贝子组件的行为。<br>高阶组件只是通过组合的方式将子组件包装在容器组件中，是一个无副作用的纯函数</p>
-<p>（4.5）要给hoc添加class名，便于debugger。<br>当我们在chrome里应用React-Developer-Tools的时候，组件结构可以一目了然，所以DisplayName最好还是加上。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const getDisplayName = component =&gt; component.displayName || component.name</span><br><span class="line">function hoc(WrappedComponent)&#123;</span><br><span class="line">    return class HOC extends Component &#123;</span><br><span class="line">        static displayName = `HOC($&#123;getDisplayName(WrappedComponent)&#125;)`</span><br><span class="line">        constructor(props) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        componentWillMount() &#123; </span><br><span class="line"></span><br><span class="line">        render() &#123;</span><br><span class="line">          return ()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">export default hoc;</span><br></pre></td></tr></table></figure>
+<p>由于ES6本身是原生语言支持实现的模块化，但是现代浏览器大多都还未支持，因此必须使用相应的transpiler工具转换成ES5的AMD,CMD模块，再借助于systemjs/requirejs等模块加载工具才能使用。其中ES6的transpiler（代码转换器）一般是用babel，他的作用是将ES6</p>
+<h3 id="1-CommonJS"><a href="#1-CommonJS" class="headerlink" title="1.CommonJS"></a>1.CommonJS</h3><p>适合服务器端</p>
+<p>commonJS由nodeJS发扬光大，这标志着js模块化正式登场。</p>
+<p>1.1定义模块<br>根据commonJS规范，一个单独的文件是一个模块，每一个模块都是一个单独的作用域，也就是说，在该模块内部定义的变量，无法被其他模块读取，除非为global对象的属性。</p>
+<p>2.2 模块输出<br>模块只有一个出口，module.exports对象，我们需要把模块希望输出的内容放入该对象。<strong> 或者是exports，这些全都是因为commonjs规范一和规范二 </strong></p>
+<p>2.3加载模块<br>加载模块用require方法，该方法读取一个文件并且执行，返回文件内部的module.exports对象或者是exports。</p>
 <blockquote>
-<p><a href="https://segmentfault.com/a/1190000010845410" target="_blank" rel="noopener">refs不会传递解决方法</a></p>
+<p>注意<br>(1). exports 与module.exports 的区别：exports 是对 module.exports 的引用，不能直接给exports 赋值，直接赋值无效，结果是一个空对象,module.exports 可以直接赋值：如示例</p>
 </blockquote>
-<h2 id="（五）依然存留的疑问"><a href="#（五）依然存留的疑问" class="headerlink" title="（五）依然存留的疑问"></a>（五）依然存留的疑问</h2><p>1.上述两个问题中的第二个问题：.组件wrappedComponent能否将props,state,function传递给EnhancedComponent？中没有解答是wrappedComponent能否将props传递给EnhancedComponent，这个没有找到资料，也许这是没有必要的操作。根据后续的深入开发以及学习中，也许会解答这个问题。<br>2.属性的校验<br>我们知道PropsTypes有着属性校验，那么EnhacedComponent与WrappedComponent之间的传值可以走属性校验吗？</p>
+<pre><code>module.exports = 123; //123
 
+module.exports = function () { //[Function]
+    console.log(123)
+}
+
+ exports = 123; //{}
+ exports = function(){ //{}
+    console.log(123)
+}
+</code></pre><blockquote>
+<p>（2)一个文件不能写多个module.exports如果写多个，对外暴露的接口是最后一个module.exports<br>（3）模块如果没有指定使用module.exports 或者exports 对外暴露接口时，在其他文件就引用该模块，得到的是一个空对象{}</p>
+</blockquote>
+<p>仔细看上面的代码，您会注意到 require 是同步的。模块系统需要同步读取模块文件内容，并编译执行以得到模块接口。<br>然而， 这在浏览器端问题多多。<br>浏览器端，加载 JavaScript 最佳、最容易的方式是在 document 中插入<script>标签。但脚本标签天生异步，传统 CommonJS 模块在浏览器环境中无法正常加载。</p>
+<p>解决思路是，用一套标准模板来封装模块定义：</p>
+<h3 id="2-AMD"><a href="#2-AMD" class="headerlink" title="2.AMD"></a>2.AMD</h3><p>Asynchronous Module Definition，称为异步模块。<br>由于不是js原生支持，使用AMD规范进行页面开发需要用到对应的函数库，也就是大名鼎鼎的RequireJS，实际上AMD是RequireJS在推广过程中对模块定义的规范化的产出。<br>requireJS主要解决两个问题：<br>1 多个js文件可能有依赖关系，被依赖的文件需要早于依赖它的文件加载到浏览器。<br>2 js加载的时候浏览器会停止页面渲染，加载文件愈多，页面失去响应的时间愈长。</p>
+<blockquote>
+<p>语法： requireJS定义了一个函数define，它是全局变量，用来定义模块。</p>
+</blockquote>
+<blockquote>
+<p>define(id,dependencies,factory) </p>
+</blockquote>
+<blockquote>
+<p>id 可选参数，用来定义模块的标识，如果没有提供该参数，脚本文件名（去掉拓展名） </p>
+</blockquote>
+<blockquote>
+<p>依赖dependencies是一个当前模块依赖的，已被模块定义的模块标识的数组字面量。有默认值，长度是三个 </p>
+</blockquote>
+<blockquote>
+<p>factory工厂方法，模块初始化要执行的函数或对象，如果为函数，它应该只被执行一次，如果是对象，此对象应该为模块的输出值。</p>
+</blockquote>
+<p>在页面上使用require函数加载模块；</p>
+<p>require([dependencies], function(){}); 与上面的commonjs的require差别很大，上面是找文件这里的呢，是id+回调</p>
+<p>require()函数接受两个参数：</p>
+<p>——第一个参数是一个数组，表示所依赖的模块；</p>
+<p>——第二个参数是一个回调函数，当前面指定的模块都加载成功后，它将被调用。加载的模块会以参数形式传入该函数，从而在回调函数内部就可以使用这些模块</p>
+<p>AMD推崇的是依赖前置，被提前罗列出来并会背提前下载并执行，后来做了改进，可以不用罗列依赖模块，允许在回调函数中就近使用require引入并下载执行模块</p>
+<h3 id="3-CMD"><a href="#3-CMD" class="headerlink" title="3.CMD"></a>3.CMD</h3><p>即common module definition，就像AMD有个requireJS,CMD有个浏览器实现的sea.js，sj要解决的问题和rj一样，只不过在模块定义方式和模块加载时机上有所不同。</p>
+<blockquote>
+<p>1、AMD推崇依赖前置，在定义模块的时候就要声明其依赖的模块 </p>
+<p>2、CMD推崇就近依赖，只有在用到某个模块的时候再去require</p>
+</blockquote>
+<p>这种区别各有优劣，只是语法上的差距，而且requireJS和SeaJS都支持对方的写法</p>
+<p>AMD和CMD最大的区别：依赖模块执行时机不同</p>
+<p>同样都是异步加载模块，AMD在加载模块完成后就会执行该模块<strong>（这里执行的被加载的模块而不是用户写的主逻辑模块），所有模块都加载执行完后会进入require的回调函数</strong>，执行主逻辑，这样的效果就是依赖模块的执行顺序和书写顺序不一定一致，看网络速度，哪个先下载下来，哪个先执行，但是主逻辑一定在所有依赖加载完成后才执行<br>上面加载的模块需要：加载+执行<br>下面加载的模块：加载<br>CMD加载完某个依赖模块后并不执行<strong>，只是下载而已</strong>，在所有依赖模块加载完成后进入主逻辑，<strong>遇到require语句的时候才执行对应的模块</strong>，这样模块的执行顺序和书写顺序是完全一致的</p>
+<h2 id="一-模块化"><a href="#一-模块化" class="headerlink" title="一.模块化"></a>一.模块化</h2><p>模块化开发，一个实现特定功能的文件就是一个模块，有了模块我们就可以更方便的使用别人的代码，要用什么功能就加载什么模块。<br>模块化开发的4点好处：
+　　</p>
+<ul>
+<li>1 避免变量污染，命名冲突 　　</li>
+<li>2  提高代码复用率 　　</li>
+<li>3 提高维护性 　　</li>
+<li>4 依赖关系的管理</li>
+</ul>
+<p>前端模块化规范从原始野蛮阶段现在慢慢进入“文艺复兴”时代，实现的过程如下：</p>
+<h3 id="1-函数封装"><a href="#1-函数封装" class="headerlink" title="1. 函数封装"></a>1. 函数封装</h3><p>我们在讲到函数逻辑的时候提到过，函数一个功能就是实现特定逻辑的一组语句打包，在一个文件里面编写几个相关函数就是最开始的模块了</p>
+<blockquote>
+<p> 详情见模块化（一）</p>
+</blockquote>
+<p>缺点：污染了全局变量，并且不能保证和其他模块起冲突，模块成员看起来似乎没啥关系</p>
+<h3 id="2-对象"><a href="#2-对象" class="headerlink" title="2. 对象"></a>2. 对象</h3><p>为了解决这个问题，有了新方法，将所有模块成员封装在一个对象中</p>
+<blockquote>
+<p> 详情见模块化（一）</p>
+</blockquote>
+<p>这样 两个函数就被包在这个对象中， 嘿嘿 看起来没毛病是吗 继续往下：<br>当我们要使用的时候，就是调用这个对象的属性<br>module.m1()<br>诶嘿 那么问题来了 这样写法会暴露全部的成员，内部状态可以被外部改变，比如外部代码可直接改变计数器的值</p>
+<pre><code>//坏人的操作
+
+module._count = 10;
+</code></pre><h3 id="3-立即执行函数"><a href="#3-立即执行函数" class="headerlink" title="3. 立即执行函数"></a>3. 立即执行函数</h3><p>这样就可以达到不暴露私有成员的目的<br>外部无法访问内部私有变量</p>
+<blockquote>
+<p> 详情见模块化（一）</p>
+</blockquote>
+</script></p>
       
 
       
@@ -248,21 +285,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hoc-react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -313,7 +335,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/25/react_hoc_2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/27/前端模块化（二）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -327,18 +349,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/23/git/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          git新操作备注
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/06/25/react_hoc_1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">高阶组件入门（1)</div>
+    <a href="/2018/08/27/前端模块化（一）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端模块化（一）</div>
       <i class="icon-circle-right"></i>
     </a>
   
