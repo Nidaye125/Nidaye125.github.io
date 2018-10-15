@@ -116,13 +116,10 @@
 <meta property="og:site_name" content="......">
 <meta property="og:description" content="综述：    关于this最想知道的内容估计就是this的指向了，但是再js中，this的指向的确定不是在定义时候，而是在执行的时候，因为执行方式（调用方式）有多种。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/XYooo/image/master/this1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/XYooo/image/master/this2.png">
-<meta property="og:updated_time" content="2018-09-29T11:53:59.585Z">
+<meta property="og:updated_time" content="2018-10-15T07:30:51.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS作用域系列1——this">
 <meta name="twitter:description" content="综述：    关于this最想知道的内容估计就是this的指向了，但是再js中，this的指向的确定不是在定义时候，而是在执行的时候，因为执行方式（调用方式）有多种。">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/XYooo/image/master/this1.png">
 
 
 
@@ -351,7 +348,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-09-29 19:53:59" itemprop="dateModified" datetime="2018-09-29T19:53:59+08:00">2018-09-29</time>
+                <time title="Modified: 2018-10-15 15:30:51" itemprop="dateModified" datetime="2018-10-15T15:30:51+08:00">2018-10-15</time>
               
             
           </span>
@@ -396,7 +393,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">1.1k</span>
+                <span title="Symbols count in article">2k</span>
               
 
               
@@ -410,7 +407,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">1 mins.</span>
+                <span title="Reading time">2 mins.</span>
               
             </div>
           
@@ -431,7 +428,7 @@
 
       
         <p>综述：<br>    关于this最想知道的内容估计就是this的指向了，但是再js中，this的指向的确定不是在定义时候，而是在执行的时候，因为执行方式（调用方式）有多种。<br><a id="more"></a></p>
-<h3 id="1-1-this的指向"><a href="#1-1-this的指向" class="headerlink" title="1.1 this的指向"></a>1.1 this的指向</h3><p>首先必须要说的是，this的指向在<strong>函数定义的时候</strong> 是确定不了的，<strong>只有函数执行的时候才能确定</strong> this到底指向谁<br>下面是决策树，至于文字看面试2<br><img src="https://raw.githubusercontent.com/XYooo/image/master/this1.png" alt="此处输入图片的描述"></p>
+<h3 id="1-1-this的指向"><a href="#1-1-this的指向" class="headerlink" title="1.1 this的指向"></a>1.1 this的指向</h3><p>首先必须要说的是，this的指向在<strong>函数定义的时候</strong> 是确定不了的，<strong>只有函数执行的时候才能确定</strong> this到底指向谁<br>下面是决策树，至于文字看面试2<br>![此处输入图片的描述][1]</p>
 <h3 id="1-2为什么this的指向不定呢"><a href="#1-2为什么this的指向不定呢" class="headerlink" title="1.2为什么this的指向不定呢"></a>1.2为什么this的指向不定呢</h3><p>总结的一段话：<strong>（IBM developerworks文档库来源）</strong><br><strong>JavaScript 中的函数既可以被当作普通函数执行，也可以作为对象的方法执行，这是导致 this 含义如此丰富的主要原因。</strong></p>
 <p>一个函数被执行时，会创建一个执行环境（ExecutionContext），函数的所有的行为均发生在此执行环境中。<strong>构建该执行环境时：</strong></p>
 <pre><code>1. JavaScript 首先会创建 arguments变量，其中包含调用函数时传入的参数。
@@ -444,12 +441,24 @@
 4. 最后为 this变量赋值，如前所述，**会根据函数调用方式的不同**，赋给 this全局对象，当前对象等。
 </code></pre><p>至此函数的执行环境（ExecutionContext）创建成功，函数开始逐行执行，所需变量均从之前构建好的执行环境（ExecutionContext）中读取。</p>
 <blockquote>
-<p>上面的文字非常的好，非常大好<br><img src="https://raw.githubusercontent.com/XYooo/image/master/this2.png" alt="执行上下文创建流程"></p>
+<p>上面的文字非常的好，非常大好<br>![执行上下文创建流程][2]</p>
 </blockquote>
 <p>而这个执行环境怎么表示呢？js为每一个执行环境关联了一个变量对象VO（Variable Object ）。这个变量对象具体包含了argument、函数的形参，局部变量（内部变量)</p>
 <blockquote>
 <p>总的来说可以将执行上下文看作是一个对象<br>    EC = {<br>        VO:{/<em>函数中的arguments对象、参数、内部变量以及函数声明</em>/}<br>        this:{},<br>        Scope:{/<em>VO以及所有父执行上下文中的VO</em>/}<br>    }</p>
 </blockquote>
+<h3 id="1-3-this的指向规则"><a href="#1-3-this的指向规则" class="headerlink" title="1.3 this的指向规则"></a>1.3 this的指向规则</h3><pre><code>1.隐式绑定（即使用.）
+2.显式绑定 (call,apply,bind)
+3.new 绑定
+4.window 绑定
+</code></pre><h3 id="1-4-判断this的指向"><a href="#1-4-判断this的指向" class="headerlink" title="1.4 判断this的指向"></a>1.4 判断this的指向</h3><p>因此，将所有规则付诸实践，每当我在函数内部看到 this 关键字时，这些就是我为了判断它的引用而采取的步骤。</p>
+<pre><code>1.查看函数在哪被调用。
+2.点左侧有没有对象？如果有，它就是 “this” 的引用。如果没有，继续第 3 步。
+3.该函数是不是用 “call”、“apply” 或者 “bind” 调用的？如果是，它会显式地指明 “this” 的引用。如果不是，继续第 4 步。
+4.该函数是不是用 “new” 调用的？如果是，“this” 指向的就是 JavaScript 解释器新创建的对象。如果不是，继续第 5 步。
+5.是否在“严格模式”下？如果是，“this” 就是 undefined，如果不是，继续第 6 步。
+6.JavaScript 很奇怪，“this” 会指向 “window” 对象。
+</code></pre><p>作者：子非<br>链接：<a href="https://juejin.im/post/5b9f176b6fb9a05d3827d03f" target="_blank" rel="noopener">https://juejin.im/post/5b9f176b6fb9a05d3827d03f</a><br>来源：掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。<br>  [1]: <a href="https://raw.githubusercontent.com/XYooo/image/master/this1.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/XYooo/image/master/this1.png</a><br>  [2]: <a href="https://raw.githubusercontent.com/XYooo/image/master/this2.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/XYooo/image/master/this2.png</a><br>  [3]: <a href="https://raw.githubusercontent.com/XYooo/image/master/this3.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/XYooo/image/master/this3.png</a><br>  [4]: <a href="https://raw.githubusercontent.com/XYooo/image/master/this4.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/XYooo/image/master/this4.png</a><br>  [5]: <a href="https://raw.githubusercontent.com/XYooo/image/master/this5.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/XYooo/image/master/this5.png</a></p>
 
       
     </div>
@@ -653,7 +662,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-this的指向"><span class="nav-number">1.</span> <span class="nav-text">1.1 this的指向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2为什么this的指向不定呢"><span class="nav-number">2.</span> <span class="nav-text">1.2为什么this的指向不定呢</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-this的指向"><span class="nav-number">1.</span> <span class="nav-text">1.1 this的指向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2为什么this的指向不定呢"><span class="nav-number">2.</span> <span class="nav-text">1.2为什么this的指向不定呢</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-this的指向规则"><span class="nav-number">3.</span> <span class="nav-text">1.3 this的指向规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-判断this的指向"><span class="nav-number">4.</span> <span class="nav-text">1.4 判断this的指向</span></a></li></ol></div>
             
 
           </div>
@@ -685,7 +694,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">54k</span>
+    <span title="Symbols count total">55k</span>
   
 
   
@@ -694,7 +703,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">49 mins.</span>
+    <span title="Reading time total">50 mins.</span>
   
 </div>
 
