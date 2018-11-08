@@ -108,28 +108,28 @@
 
 
 
-  <meta name="description" content="综述：    在《JS作用域系列1——this》中讲了一个this啥时候赋值的时候讲的整个流程就是一个执行环境的创建">
+  <meta name="description" content="proto是什么含义，以及proto与prototype是什么关系，下面就是解释">
 <meta name="keywords" content="JS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS作用域系列2——执行上下文">
-<meta property="og:url" content="http://yoursite.com/2018/09/28/JS作用域系列2——执行上下文/index.html">
+<meta property="og:title" content="JS作用域系列5——原型2">
+<meta property="og:url" content="http://yoursite.com/2018/09/28/JS作用域系列5——原型2/index.html">
 <meta property="og:site_name" content="......">
-<meta property="og:description" content="综述：    在《JS作用域系列1——this》中讲了一个this啥时候赋值的时候讲的整个流程就是一个执行环境的创建">
+<meta property="og:description" content="proto是什么含义，以及proto与prototype是什么关系，下面就是解释">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/XYooo/image/master/this2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/XYooo/image/master/this3.png">
-<meta property="og:updated_time" content="2018-09-29T11:09:48.292Z">
+<meta property="og:image" content="https://note.youdao.com/favicon.ico">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/574093-c03529e3f0943633.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/570/format/webp">
+<meta property="og:updated_time" content="2018-11-08T07:09:38.181Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS作用域系列2——执行上下文">
-<meta name="twitter:description" content="综述：    在《JS作用域系列1——this》中讲了一个this啥时候赋值的时候讲的整个流程就是一个执行环境的创建">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/XYooo/image/master/this2.png">
+<meta name="twitter:title" content="JS作用域系列5——原型2">
+<meta name="twitter:description" content="proto是什么含义，以及proto与prototype是什么关系，下面就是解释">
+<meta name="twitter:image" content="https://note.youdao.com/favicon.ico">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/28/JS作用域系列2——执行上下文/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/28/JS作用域系列5——原型2/"/>
 
 
 
@@ -139,7 +139,7 @@
   };
 </script>
 
-  <title>JS作用域系列2——执行上下文 | ......</title>
+  <title>JS作用域系列5——原型2 | ......</title>
   
 
 
@@ -294,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/28/JS作用域系列2——执行上下文/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/28/JS作用域系列5——原型2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="......">
@@ -311,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JS作用域系列2——执行上下文
+          <h1 class="post-title" itemprop="name headline">JS作用域系列5——原型2
               
             
           </h1>
@@ -336,7 +336,7 @@
                 
               
 
-              <time title="Created: 2018-09-28 12:55:03" itemprop="dateCreated datePublished" datetime="2018-09-28T12:55:03+08:00">2018-09-28</time>
+              <time title="Created: 2018-09-28 15:55:59" itemprop="dateCreated datePublished" datetime="2018-09-28T15:55:59+08:00">2018-09-28</time>
             
 
             
@@ -353,7 +353,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-09-29 19:09:48" itemprop="dateModified" datetime="2018-09-29T19:09:48+08:00">2018-09-29</time>
+                <time title="Modified: 2018-11-08 15:09:38" itemprop="dateModified" datetime="2018-11-08T15:09:38+08:00">2018-11-08</time>
               
             
           </span>
@@ -370,7 +370,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工作/" itemprop="url" rel="index"><span itemprop="name">工作</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/总结/" itemprop="url" rel="index"><span itemprop="name">总结</span></a></span>
 
                 
                 
@@ -432,47 +432,72 @@
       
 
       
-        <p>综述：<br>    在《JS作用域系列1——this》中讲了一个this啥时候赋值的时候讲的整个流程就是一个执行环境的创建<br><a id="more"></a></p>
-<h2 id="（1）执行上下文-执行环境"><a href="#（1）执行上下文-执行环境" class="headerlink" title="（1）执行上下文(执行环境)"></a>（1）执行上下文(执行环境)</h2><blockquote>
-<p>涉及到上下文，函数的作用域或者说是执行环境</p>
-</blockquote>
-<h3 id="1-1-this的指向"><a href="#1-1-this的指向" class="headerlink" title="1.1 this的指向"></a>1.1 this的指向</h3><p>略，在《JS作用域系列1——this》</p>
-<h3 id="1-2-为什么this的指向不定呢-执行环境创建过程"><a href="#1-2-为什么this的指向不定呢-执行环境创建过程" class="headerlink" title="1.2(为什么this的指向不定呢)执行环境创建过程"></a>1.2(为什么this的指向不定呢)执行环境创建过程</h3><p>一个函数被执行时，会创建一个执行环境（ExecutionContext），函数的所有的行为均发生在此执行环境中。<strong>构建该执行环境时：</strong></p>
-<pre><code>1. JavaScript 首先会创建 arguments变量，其中包含调用函数时传入的参数。
-2. 接下来创建作用域链。
-3. 然后初始化变量，
-    - 3.1 首先初始化函数的形参表，值为arguments变量中对应的值，如果arguments变量中没有对应值，则该形参初始化为 undefined；
-    - 3.2 如果该函数中含有内部函数，则初始化这些内部函数；
-    - 3.3 如果没有，继续初始化该函数内定义的局部变量，需要注意的是**此时这些变量初始化为 undefined，其赋值操作在执行环境（ExecutionContext）创建成功后，函数执行时才会执行；
-    **这点对于我们理解 JavaScript 中的变量作用域非常重要，鉴于篇幅，我们先不在这里讨论这个话题。**
-4. 最后为 this变量赋值，如前所述，**会根据函数调用方式的不同**，赋给 this全局对象，当前对象等。
-</code></pre><p>至此函数的执行环境（ExecutionContext）创建成功，函数开始逐行执行，所需变量均从之前构建好的执行环境（ExecutionContext）中读取。</p>
+        <p><em>proto</em>是什么含义，以及<em>proto</em>与prototype是什么关系，下面就是解释</p>
+<a id="more"></a>
+<h2 id="1-proto"><a href="#1-proto" class="headerlink" title="1 proto"></a>1 <em>proto</em></h2><h3 id="1-1-proto指向原型对象"><a href="#1-1-proto指向原型对象" class="headerlink" title="1.1 proto指向原型对象"></a>1.1 <em>proto</em>指向原型对象</h3><p>JS 在创建对象（不论是普通对象还是函数对象）的时候，都有一个叫做<strong>proto</strong> 的内置属性，<strong>用于指向创建它的构造函数的原型对象</strong>。</p>
+<p>对象 person1 有一个<strong>proto</strong>属性，创建它的构造函数是 Person，构造函数的原型对象是 Person.prototype ，所以：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person1.__proto__ == Person.prototype</span><br></pre></td></tr></table></figure>
+<p>请看下图</p>
+<p><img src="https://note.youdao.com/favicon.ico" alt="《JavaScript 高级程序设计》的图 6-1"></p>
+<p>根据上面这个连接图，我们能得到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Person.prototype.constructor == Person;</span><br><span class="line">person1.__proto__ == Person.prototype;</span><br><span class="line">person1.constructor == Person;</span><br></pre></td></tr></table></figure>
+<p>不过，要明确的真正重要的一点就是，这个连接存在于实例（person1）与构造函数（Person）的原型对象（Person.prototype）之间，而不是存在于实例（person1）与构造函数（Person）之间。</p>
 <blockquote>
-<p>上面的文字非常的好，非常大好<br><img src="https://raw.githubusercontent.com/XYooo/image/master/this2.png" alt="执行上下文创建流程"></p>
+<p>注意：因为绝大部分浏览器都支持<strong>proto</strong>属性，所以它才被加入了 ES6 里（ES5 部分浏览器也支持，但还不是标准）</p>
 </blockquote>
-<p>  而这个执行环境怎么表示呢？js为每一个执行环境关联了一个变量对象VO（Variable Object ）。这个变量对象具体包含了argument、函数的形参，局部变量（内部变量）</p>
-<h2 id="1-3-执行环境、执行上下文-Execution-Context"><a href="#1-3-执行环境、执行上下文-Execution-Context" class="headerlink" title="1.3 执行环境、执行上下文(Execution Context)"></a>1.3 执行环境、执行上下文(Execution Context)</h2><p><strong>每个函数都有自己的执行环境</strong>。当执行流进入一个函数时，函数的环境就会被推入一个环境栈中。而在函数执行后，栈将其环境弹出，把控制权返回给之前的执行环境。 </p>
-<h3 id="1-3-1-执行环境的建立分为两个阶段："><a href="#1-3-1-执行环境的建立分为两个阶段：" class="headerlink" title="1.3.1 执行环境的建立分为两个阶段："></a>1.3.1 执行环境的建立分为两个阶段：</h3><blockquote>
-<p>进入执行上下文（创建阶段）和执行阶段（激活/执行阶段）</p>
-</blockquote>
+<blockquote>
+<p>总结2：</p>
 <ol>
-<li>进入上下文阶段：就是执行环境的创建，发生在函数调用时，但在执行具体代码之前(上面图的最后一步)。具体完成创建，作用域链；创建变量、函数和参数以及求this的值 </li>
-<li><p>执行代码阶段：主要完成变量赋值、函数引用和解释/执行其他代码</p>
-<blockquote>
-<p>总的来说可以将执行上下文看作是一个对象<br>EC = {<br>   VO:{/<em>函数中的arguments对象、参数、内部变量以及函数声明</em>/},<br>   this:{},<br>   Scope:{/<em>VO以及所有父执行上下文中的VO</em>/}<br>}<br><strong>EC的组成正好将执行环境创建的过程给拆分了</strong></p>
+<li><em>proto</em>属性存在每个对象中</li>
+<li><em>proto</em>属性指向++该构造函数的++原型对象</li>
+<li>prototype属性指向++自身的++原型对象</li>
+<li>都可以有<em>proto</em>属性，但是prototype属性只有函数对象才有</li>
+</ol>
 </blockquote>
+<h2 id="2-原型链"><a href="#2-原型链" class="headerlink" title="2 原型链"></a>2 原型链</h2><p>上述的总结1，总结2，说了种种关系，这些关系构成了原型链</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/574093-c03529e3f0943633.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/570/format/webp" alt="原型链图"></p>
+<ol>
+<li><p>（Functions）函数对象一列不仅仅有<em>proto</em>属性，还是有prototype属性。</p>
+<ol>
+<li><em>proto</em>指向构造函数的原型对象</li>
+<li>prototype指向自身的原型对象</li>
+</ol>
+</li>
+<li><p>（XX.prototype）原型对象那一列只有<em>proto</em>属性 </p>
+<ol>
+<li><em>proto</em>指向构造函数的原型对象</li>
+</ol>
+</li>
+<li>实例那一列那一列只有<em>proto</em>属性 <ol>
+<li><em>proto</em>指向构造函数的原型对象</li>
+</ol>
 </li>
 </ol>
-<blockquote>
-<p>这里需要说明一下：函数表达式不包含在变量对象之中<br>    var foo = 10;<br>    function bar() {} // function declaration, FD<br>    (function baz() {}); // function expression, FE  </p>
-<pre><code>console.log(  
-  this.foo == foo, // true  
-  window.bar == bar // true  
-);  
-
-console.log(baz); // ReferenceError, &quot;baz&quot; is not defined
-</code></pre></blockquote>
-<p>之后，全局上下文的变量对象为<br><img src="https://raw.githubusercontent.com/XYooo/image/master/this3.png" alt="此处输入图片的描述"></p>
+<h2 id="3-实践"><a href="#3-实践" class="headerlink" title="3 实践"></a>3 实践</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. person1.__proto__ 是什么？</span><br><span class="line">2. Person.__proto__ 是什么？</span><br><span class="line">3. Person.prototype.__proto__ 是什么？</span><br><span class="line">4. Object.__proto__ 是什么？</span><br><span class="line">5. Object.prototype__proto__ 是什么？</span><br></pre></td></tr></table></figure>
+<p>答案：<br>第一题：</p>
+<ul>
+<li>因为 person1.<strong>proto</strong> === person1 的构造函数.prototype</li>
+<li>因为 person1的构造函数 === Person</li>
+<li>所以 person1.<strong>proto</strong> === Person.prototype</li>
+</ul>
+<p>第二题：</p>
+<ul>
+<li>因为 Person.<strong>proto</strong> === Person的构造函数.prototype</li>
+<li>因为 Person的构造函数 === Function</li>
+<li>所以 Person.<strong>proto</strong> === Function.prototype</li>
+</ul>
+<p>第三题：</p>
+<ul>
+<li>Person.prototype 是一个普通对象，我们无需关注它有哪些属性，只要记住它是一个普通对象。</li>
+<li>因为一个普通对象的构造函数 === Object</li>
+<li>所以 Person.prototype.<strong>proto</strong> === Object.prototype</li>
+</ul>
+<p>第四题，参照第二题，因为 Person 和 Object 一样都是构造函数</p>
+<p>第五题：</p>
+<ul>
+<li>Object.prototype 对象也有proto属性，但它比较特殊，为 null 。</li>
+<li>因为 null 处于原型链的顶端，这个只能记住。<br>Object.prototype.<strong>proto</strong> === null</li>
+</ul>
 
       
     </div>
@@ -506,8 +531,8 @@ console.log(baz); // ReferenceError, &quot;baz&quot; is not defined
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/28/JS作用域系列1——this/" rel="next" title="JS作用域系列1——this">
-                <i class="fa fa-chevron-left"></i> JS作用域系列1——this
+              <a href="/2018/09/28/JS作用域系列5——原型3/" rel="next" title="JS作用域系列5——原型2">
+                <i class="fa fa-chevron-left"></i> JS作用域系列5——原型2
               </a>
             
           </div>
@@ -515,10 +540,6 @@ console.log(baz); // ReferenceError, &quot;baz&quot; is not defined
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/28/JS作用域系列3——scope作用域链/" rel="prev" title="JS作用域系列3——scope作用域链">
-                JS作用域系列3——scope作用域链 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -592,7 +613,7 @@ console.log(baz); // ReferenceError, &quot;baz&quot; is not defined
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -611,7 +632,11 @@ console.log(baz); // ReferenceError, &quot;baz&quot; is not defined
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -676,7 +701,7 @@ console.log(baz); // ReferenceError, &quot;baz&quot; is not defined
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#（1）执行上下文-执行环境"><span class="nav-number">1.</span> <span class="nav-text">（1）执行上下文(执行环境)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-this的指向"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 this的指向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-为什么this的指向不定呢-执行环境创建过程"><span class="nav-number">1.2.</span> <span class="nav-text">1.2(为什么this的指向不定呢)执行环境创建过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-执行环境、执行上下文-Execution-Context"><span class="nav-number">2.</span> <span class="nav-text">1.3 执行环境、执行上下文(Execution Context)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-执行环境的建立分为两个阶段："><span class="nav-number">2.1.</span> <span class="nav-text">1.3.1 执行环境的建立分为两个阶段：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-proto"><span class="nav-number">1.</span> <span class="nav-text">1 proto</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-proto指向原型对象"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 proto指向原型对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-原型链"><span class="nav-number">2.</span> <span class="nav-text">2 原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-实践"><span class="nav-number">3.</span> <span class="nav-text">3 实践</span></a></li></ol></div>
             
 
           </div>
@@ -708,7 +733,7 @@ console.log(baz); // ReferenceError, &quot;baz&quot; is not defined
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">54k</span>
+    <span title="Symbols count total">70k</span>
   
 
   
@@ -717,7 +742,7 @@ console.log(baz); // ReferenceError, &quot;baz&quot; is not defined
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">49 mins.</span>
+    <span title="Reading time total">1:03</span>
   
 </div>
 

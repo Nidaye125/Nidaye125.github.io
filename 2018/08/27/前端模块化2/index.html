@@ -108,28 +108,25 @@
 
 
 
-  <meta name="description" content="综述：    在《JS作用域系列2——执行上下文》中有个EC对象，包含VO，this，和Scope。Scope就是作用域链，也是再执行上下文创建过程中第二步就开始创建作用域链了">
-<meta name="keywords" content="JS">
+  <meta name="description" content="综述：    Commonjs,AMD,CMD,ES6的模块化总结">
+<meta name="keywords" content="模块化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS作用域系列3——scope作用域链">
-<meta property="og:url" content="http://yoursite.com/2018/09/28/JS作用域系列3——scope作用域链/index.html">
+<meta property="og:title" content="前端模块化（二）">
+<meta property="og:url" content="http://yoursite.com/2018/08/27/前端模块化2/index.html">
 <meta property="og:site_name" content="......">
-<meta property="og:description" content="综述：    在《JS作用域系列2——执行上下文》中有个EC对象，包含VO，this，和Scope。Scope就是作用域链，也是再执行上下文创建过程中第二步就开始创建作用域链了">
+<meta property="og:description" content="综述：    Commonjs,AMD,CMD,ES6的模块化总结">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/XYooo/image/master/this4.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/XYooo/image/master/this5.png">
-<meta property="og:updated_time" content="2018-09-29T11:09:51.880Z">
+<meta property="og:updated_time" content="2018-11-07T10:46:54.725Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS作用域系列3——scope作用域链">
-<meta name="twitter:description" content="综述：    在《JS作用域系列2——执行上下文》中有个EC对象，包含VO，this，和Scope。Scope就是作用域链，也是再执行上下文创建过程中第二步就开始创建作用域链了">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/XYooo/image/master/this4.png">
+<meta name="twitter:title" content="前端模块化（二）">
+<meta name="twitter:description" content="综述：    Commonjs,AMD,CMD,ES6的模块化总结">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/28/JS作用域系列3——scope作用域链/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/27/前端模块化2/"/>
 
 
 
@@ -139,7 +136,7 @@
   };
 </script>
 
-  <title>JS作用域系列3——scope作用域链 | ......</title>
+  <title>前端模块化（二） | ......</title>
   
 
 
@@ -294,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/28/JS作用域系列3——scope作用域链/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/27/前端模块化2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="......">
@@ -311,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JS作用域系列3——scope作用域链
+          <h1 class="post-title" itemprop="name headline">前端模块化（二）
               
             
           </h1>
@@ -336,7 +333,7 @@
                 
               
 
-              <time title="Created: 2018-09-28 13:55:24" itemprop="dateCreated datePublished" datetime="2018-09-28T13:55:24+08:00">2018-09-28</time>
+              <time title="Created: 2018-08-27 14:11:00" itemprop="dateCreated datePublished" datetime="2018-08-27T14:11:00+08:00">2018-08-27</time>
             
 
             
@@ -353,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-09-29 19:09:51" itemprop="dateModified" datetime="2018-09-29T19:09:51+08:00">2018-09-29</time>
+                <time title="Modified: 2018-11-07 18:46:54" itemprop="dateModified" datetime="2018-11-07T18:46:54+08:00">2018-11-07</time>
               
             
           </span>
@@ -370,7 +367,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工作/" itemprop="url" rel="index"><span itemprop="name">工作</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/总结-工作/" itemprop="url" rel="index"><span itemprop="name">总结 工作</span></a></span>
 
                 
                 
@@ -398,7 +395,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">1.8k</span>
+                <span title="Symbols count in article">3.2k</span>
               
 
               
@@ -412,7 +409,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">2 mins.</span>
+                <span title="Reading time">3 mins.</span>
               
             </div>
           
@@ -432,34 +429,102 @@
       
 
       
-        <p>综述：<br>    在《JS作用域系列2——执行上下文》中有个EC对象，包含VO，this，和Scope。Scope就是作用域链，也是再执行上下文创建过程中第二步就开始创建作用域链了</p>
-<a id="more"></a>
-<h2 id="1-执行上下文-执行环境"><a href="#1-执行上下文-执行环境" class="headerlink" title="(1)执行上下文(执行环境)"></a>(1)执行上下文(执行环境)</h2><p>略，在《JS作用域系列2——执行上下文》</p>
-<h2 id="2-作用域链"><a href="#2-作用域链" class="headerlink" title="(2)作用域链"></a>(2)作用域链</h2><h3 id="2-1-作用域链用处"><a href="#2-1-作用域链用处" class="headerlink" title="2.1 作用域链用处"></a>2.1 作用域链用处</h3><p>在红宝书中对作用域链的描述有这么一段话：</p>
-<pre><code>1. 当代码在一个环境中执行时，会创建变量对象的一个作用域链（作用域链指向变量对象）。所以作用域链的用途是保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端始终是当前执行的代码所在环境的变量对象。
+        <p>综述：<br>    Commonjs,AMD,CMD,ES6的模块化总结<br><a id="more"></a></p>
+<h2 id="前端的四种模块化方案-webpack-require-js-seajs-browserify）"><a href="#前端的四种模块化方案-webpack-require-js-seajs-browserify）" class="headerlink" title="前端的四种模块化方案(webpack/require.js/seajs/browserify）"></a>前端的四种模块化方案(webpack/require.js/seajs/browserify）</h2><p>JS不具备原生的模块化技能，因此需要采用第三方开发的模块依赖处理库来实现模块化：CommonJS、AMD、CMD、ES6</p>
+<p>这四种方案的实现对比：</p>
+<blockquote>
+<p>CommonJS:  exports + require </p>
+</blockquote>
+<blockquote>
+<p>AMD: define + require </p>
+</blockquote>
+<blockquote>
+<p>CMD：define+require+exports/exports </p>
+</blockquote>
+<p>Ps. CommonJS 和AMD上下的require也不是一样的,cmd与amd的文字一样内容差了好多参数） </p>
+<blockquote>
+<p>ES6: export + import</p>
+</blockquote>
+<p>由于ES6本身是原生语言支持实现的模块化，但是现代浏览器大多都还未支持，因此必须使用相应的transpiler工具转换成ES5的AMD,CMD模块，再借助于systemjs/requirejs等模块加载工具才能使用。其中ES6的transpiler（代码转换器）一般是用babel，他的作用是将ES6</p>
+<h3 id="1-CommonJS"><a href="#1-CommonJS" class="headerlink" title="1.CommonJS"></a>1.CommonJS</h3><p>适合服务器端</p>
+<p>commonJS由nodeJS发扬光大，这标志着js模块化正式登场。</p>
+<p>1.1定义模块<br>根据commonJS规范，一个单独的文件是一个模块，每一个模块都是一个单独的作用域，也就是说，在该模块内部定义的变量，无法被其他模块读取，除非为global对象的属性。</p>
+<p>2.2 模块输出<br>模块只有一个出口，module.exports对象，我们需要把模块希望输出的内容放入该对象。<strong> 或者是exports，这些全都是因为commonjs规范一和规范二 </strong></p>
+<p>2.3加载模块<br>加载模块用require方法，该方法读取一个文件并且执行，返回文件内部的module.exports对象或者是exports。</p>
+<blockquote>
+<p>注意<br>(1). exports 与module.exports 的区别：exports 是对 module.exports 的引用，不能直接给exports 赋值，直接赋值无效，结果是一个空对象,module.exports 可以直接赋值：如示例</p>
+</blockquote>
+<pre><code>module.exports = 123; //123
 
-2. 如果这个环境是函数，则将其活动对象作为变量对象。活动对象在最开始时只包含一个变量，即arguments对象。作用域链的下一个变量对象来自包含环境，而在下一个变量对象则来自下一个包含环境。这样一直延续到全局执行环境；
+module.exports = function () { //[Function]
+    console.log(123)
+}
 
-3. 全局执行环境的变量对象始终都是作用域链中的最后一个对象。 全局环境的变量对象始终存在，而局部环境的变量对象，则只在函数执行的过程中存在。
-
-&gt; 活动对象 === 变量对象？
-&gt; 
-&gt; 当函数被调用的时候，一个特殊的对象——活动对象将会被创建。 换句话说，活动对象除了变量和函数声明之外，它还存储了形参和arguments对象。
-&gt; 这不就是vo（变量对象吗）吗？
-</code></pre><p><strong>作用域链知识总结</strong></p>
+ exports = 123; //{}
+ exports = function(){ //{}
+    console.log(123)
+}
+</code></pre><blockquote>
+<p>（2)一个文件不能写多个module.exports如果写多个，对外暴露的接口是最后一个module.exports<br>（3）模块如果没有指定使用module.exports 或者exports 对外暴露接口时，在其他文件就引用该模块，得到的是一个空对象{}</p>
+</blockquote>
+<p>仔细看上面的代码，您会注意到 require 是同步的。模块系统需要同步读取模块文件内容，并编译执行以得到模块接口。<br>然而， 这在浏览器端问题多多。<br>浏览器端，加载 JavaScript 最佳、最容易的方式是在 document中插入<code>&lt;script&gt;</code>标签。但脚本标签天生异步，传统 CommonJS 模块在浏览器环境中无法正常加载。</p>
+<p>解决思路是，用一套标准模板来封装模块定义：</p>
+<h3 id="2-AMD"><a href="#2-AMD" class="headerlink" title="2.AMD"></a>2.AMD</h3><p>Asynchronous Module Definition，称为异步模块。<br>由于不是js原生支持，使用AMD规范进行页面开发需要用到对应的函数库，也就是大名鼎鼎的RequireJS，实际上AMD是RequireJS在推广过程中对模块定义的规范化的产出。<br>requireJS主要解决两个问题：<br>1 多个js文件可能有依赖关系，被依赖的文件需要早于依赖它的文件加载到浏览器。<br>2 js加载的时候浏览器会停止页面渲染，加载文件愈多，页面失去响应的时间愈长。</p>
+<blockquote>
+<p>语法： requireJS定义了一个函数define，它是全局变量，用来定义模块。</p>
+</blockquote>
+<blockquote>
+<p>define(id,dependencies,factory) </p>
+</blockquote>
+<blockquote>
+<p>id 可选参数，用来定义模块的标识，如果没有提供该参数，脚本文件名（去掉拓展名） </p>
+</blockquote>
+<blockquote>
+<p>依赖dependencies是一个当前模块依赖的，已被模块定义的模块标识的数组字面量。有默认值，长度是三个 </p>
+</blockquote>
+<blockquote>
+<p>factory工厂方法，模块初始化要执行的函数或对象，如果为函数，它应该只被执行一次，如果是对象，此对象应该为模块的输出值。</p>
+</blockquote>
+<p>在页面上使用require函数加载模块；</p>
+<p>require([dependencies], function(){}); 与上面的commonjs的require差别很大，上面是找文件这里的呢，是id+回调</p>
+<p>require()函数接受两个参数：</p>
+<p>——第一个参数是一个数组，表示所依赖的模块；</p>
+<p>——第二个参数是一个回调函数，当前面指定的模块都加载成功后，它将被调用。加载的模块会以参数形式传入该函数，从而在回调函数内部就可以使用这些模块</p>
+<p>AMD推崇的是依赖前置，被提前罗列出来并会背提前下载并执行，后来做了改进，可以不用罗列依赖模块，允许在回调函数中就近使用require引入并下载执行模块</p>
+<h3 id="3-CMD"><a href="#3-CMD" class="headerlink" title="3.CMD"></a>3.CMD</h3><p>即common module definition，就像AMD有个requireJS,CMD有个浏览器实现的sea.js，sj要解决的问题和rj一样，只不过在模块定义方式和模块加载时机上有所不同。</p>
+<blockquote>
+<p>1、AMD推崇依赖前置，在定义模块的时候就要声明其依赖的模块 </p>
+<p>2、CMD推崇就近依赖，只有在用到某个模块的时候再去require</p>
+</blockquote>
+<p>这种区别各有优劣，只是语法上的差距，而且requireJS和SeaJS都支持对方的写法</p>
+<p>AMD和CMD最大的区别：依赖模块执行时机不同</p>
+<p>同样都是异步加载模块，AMD在加载模块完成后就会执行该模块<strong>（这里执行的被加载的模块而不是用户写的主逻辑模块），所有模块都加载执行完后会进入require的回调函数</strong>，执行主逻辑，这样的效果就是依赖模块的执行顺序和书写顺序不一定一致，看网络速度，哪个先下载下来，哪个先执行，但是主逻辑一定在所有依赖加载完成后才执行<br>上面加载的模块需要：加载+执行<br>下面加载的模块：加载<br>CMD加载完某个依赖模块后并不执行<strong>，只是下载而已</strong>，在所有依赖模块加载完成后进入主逻辑，<strong>遇到require语句的时候才执行对应的模块</strong>，这样模块的执行顺序和书写顺序是完全一致的</p>
+<h2 id="一-模块化"><a href="#一-模块化" class="headerlink" title="一.模块化"></a>一.模块化</h2><p>模块化开发，一个实现特定功能的文件就是一个模块，有了模块我们就可以更方便的使用别人的代码，要用什么功能就加载什么模块。<br>模块化开发的4点好处：
+　　</p>
 <ul>
-<li>当代码在一个环境中执行时，都会创建一个作用域链<br>。 <strong>作用域链的用途是保证对执行环境有权访问的所有变量和函数的有序访问。整个作用域链的本质是一个指向变量对象的指针列表。作用域链的最前端，始终是当前正在执行的代码所在环境的变量对象，作用域链中的最后一个对象，始终是全局执行环境的变量对象。</strong></li>
-<li>如果这个环境是函数，则将其活动对象（activation object)作为变量对象。活动对象在最开始时只包含一个变量，就是函数内部的arguments对象。作用域链中的下一个变量对象来自该函数的包含环境，而再下一个变量对象来自再下一个包含环境。这样，一直延续到全局执行环境，全局执行环境的变量对象始终是作用域链中的最后一个对象。</li>
+<li>1 避免变量污染，命名冲突 　　</li>
+<li>2  提高代码复用率 　　</li>
+<li>3 提高维护性 　　</li>
+<li>4 依赖关系的管理</li>
 </ul>
-<h3 id="2-2-作用域链形成"><a href="#2-2-作用域链形成" class="headerlink" title="2.2 作用域链形成"></a>2.2 作用域链形成</h3><p>  在创建XX函数时，会创建一个预先包含全局变量对象的作用域链，这个作用域链会被保存在内部的[[Scope]]属性中。当调用XX函数时，会为函数创建一个执行环境，然后通过赋值函数的[[Scope]]属性中的对象构建起执行环境的作用域链。</p>
-<h3 id="2-3-demo"><a href="#2-3-demo" class="headerlink" title="2.3 demo"></a>2.3 demo</h3><p>无论什么时候在函数中访问一个变量时，就会从作用域链中搜索具有相应名字的变量。一般来讲，当函数执行完毕后，局部活动对象就会被销毁，内存中仅保存全局作用域（全局执行环境的变量对象）<strong>。但是闭包的情况又有所不同。</strong><br><img src="https://raw.githubusercontent.com/XYooo/image/master/this4.png" alt="此处输入图片的描述"><br>在另一个函数内部定义的函数会将包含函数（即外部函数）的活动对象添加到它的作用域链中。因此，在createComparisonFunction()函数内部定义的匿名函数作用域链中，实际上将会包含外部函数createComparisonFunction()的活动对象。</p>
-<pre><code>var compare = createCOmparisionFunction(&apos;name&apos;);
-var result = compare({name:&apos;jack&apos;},{name:&apos;lisa&apos;});
-//解除对匿名函数的引用
-compareName = null ;
-</code></pre><p>当上述代码执行时，下图展示了包含函数与内部匿名函数的作用域链 <img src="https://raw.githubusercontent.com/XYooo/image/master/this5.png" alt="此处输入图片的描述"></p>
-<p>在匿名函数从createComparisonFunction()中被返回后，它的作用域链被初始化为包含createComparisonFunction()函数的活动对象和全局变量对象。(从下面看)</p>
-<p>这样，匿名函数就可以访问在createComparisonFunction()中定义的所有变量。更为重要的是， createComparisonFunction()函数在执行完毕后，<strong>其活动对象也不会被销毁</strong>，因为匿名函数的作用域链仍然在引用这个活动对象。<strong>即当createComparisonFunction()函数返回后，其执行环境的作用域链会被销毁，但它的活动对象任然会留在内存中；</strong>直到匿名函数被销毁后，createComparisonFunction()的活动对象才会被销毁。</p>
+<p>前端模块化规范从原始野蛮阶段现在慢慢进入“文艺复兴”时代，实现的过程如下：</p>
+<h3 id="1-函数封装"><a href="#1-函数封装" class="headerlink" title="1. 函数封装"></a>1. 函数封装</h3><p>我们在讲到函数逻辑的时候提到过，函数一个功能就是实现特定逻辑的一组语句打包，在一个文件里面编写几个相关函数就是最开始的模块了</p>
+<blockquote>
+<p> 详情见模块化（一）</p>
+</blockquote>
+<p>缺点：污染了全局变量，并且不能保证和其他模块起冲突，模块成员看起来似乎没啥关系</p>
+<h3 id="2-对象"><a href="#2-对象" class="headerlink" title="2. 对象"></a>2. 对象</h3><p>为了解决这个问题，有了新方法，将所有模块成员封装在一个对象中</p>
+<blockquote>
+<p> 详情见模块化（一）</p>
+</blockquote>
+<p>这样 两个函数就被包在这个对象中， 嘿嘿 看起来没毛病是吗 继续往下：<br>当我们要使用的时候，就是调用这个对象的属性<br>module.m1()<br>诶嘿 那么问题来了 这样写法会暴露全部的成员，内部状态可以被外部改变，比如外部代码可直接改变计数器的值</p>
+<pre><code>//坏人的操作
+
+module._count = 10;
+</code></pre><h3 id="3-立即执行函数"><a href="#3-立即执行函数" class="headerlink" title="3. 立即执行函数"></a>3. 立即执行函数</h3><p>这样就可以达到不暴露私有成员的目的<br>外部无法访问内部私有变量</p>
+<blockquote>
+<p> 详情见模块化（一）</p>
+</blockquote>
 
       
     </div>
@@ -480,7 +545,7 @@ compareName = null ;
       
         <div class="post-tags">
           
-            <a href="/tags/JS/" rel="tag"># JS</a>
+            <a href="/tags/模块化/" rel="tag"># 模块化</a>
           
         </div>
       
@@ -493,8 +558,8 @@ compareName = null ;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/28/JS作用域系列2——执行上下文/" rel="next" title="JS作用域系列2——执行上下文">
-                <i class="fa fa-chevron-left"></i> JS作用域系列2——执行上下文
+              <a href="/2018/08/27/前端模块化1/" rel="next" title="前端模块化1">
+                <i class="fa fa-chevron-left"></i> 前端模块化1
               </a>
             
           </div>
@@ -503,8 +568,8 @@ compareName = null ;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/28/JS作用域系列4——闭包/" rel="prev" title="JS作用域系列4——闭包">
-                JS作用域系列4——闭包 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/27/webpack初试水/" rel="prev" title="webpack单页应用和多页应用搭建初试水（一）">
+                webpack单页应用和多页应用搭建初试水（一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -579,7 +644,7 @@ compareName = null ;
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -598,7 +663,11 @@ compareName = null ;
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -663,7 +732,7 @@ compareName = null ;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-执行上下文-执行环境"><span class="nav-number">1.</span> <span class="nav-text">(1)执行上下文(执行环境)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-作用域链"><span class="nav-number">2.</span> <span class="nav-text">(2)作用域链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-作用域链用处"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 作用域链用处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-作用域链形成"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 作用域链形成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-demo"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 demo</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端的四种模块化方案-webpack-require-js-seajs-browserify）"><span class="nav-number">1.</span> <span class="nav-text">前端的四种模块化方案(webpack/require.js/seajs/browserify）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-CommonJS"><span class="nav-number">1.1.</span> <span class="nav-text">1.CommonJS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-AMD"><span class="nav-number">1.2.</span> <span class="nav-text">2.AMD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-CMD"><span class="nav-number">1.3.</span> <span class="nav-text">3.CMD</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一-模块化"><span class="nav-number">2.</span> <span class="nav-text">一.模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-函数封装"><span class="nav-number">2.1.</span> <span class="nav-text">1. 函数封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-对象"><span class="nav-number">2.2.</span> <span class="nav-text">2. 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-立即执行函数"><span class="nav-number">2.3.</span> <span class="nav-text">3. 立即执行函数</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -695,7 +764,7 @@ compareName = null ;
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">54k</span>
+    <span title="Symbols count total">70k</span>
   
 
   
@@ -704,7 +773,7 @@ compareName = null ;
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">49 mins.</span>
+    <span title="Reading time total">1:03</span>
   
 </div>
 
