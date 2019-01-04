@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="前端匍匐前进">
+    <meta name="keyword"  content="前端">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        cookie简介1 - ......
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> less code more art. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>......</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-前言"><span class="toc-text">1.前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-cookie"><span class="toc-text">2. cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-查看cookie"><span class="toc-text">2.1 查看cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-cookie字段解析"><span class="toc-text">2.2 cookie字段解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-cookie设置过期时间"><span class="toc-text">2.3 cookie设置过期时间</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> less code more art. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        cookie简介1
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-01-04 14:41:49</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#http cookie" title="http cookie">http cookie</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>了解一下cookie<br><a id="more"></a></p>
+<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>首先了解一下什么是cookie?</p>
+<p><strong>cookie是一种WEB服务器通过浏览器在访问者的硬盘上存储信息的手段</strong>。IE浏览器把Cookie信息保存在类似于C://windows//cookies的目录下。</p>
+<p>当用户再次访问某个站点时,服务端将要求浏览器查找并返回先前发送的Cookie信息,来识别这个用户。</p>
+<p>cookies给网站和用户带来的好处非常多:</p>
+<ul>
+<li><p>1、Cookie能使站点跟踪特定访问者的访问次数、最后访问时间和访问者进入站点的路径</p>
+</li>
+<li><p>2、Cookie能告诉在线广告商广告被点击的次数,从而可以更精确的投放广告</p>
+</li>
+<li><p>3、Cookie有效期限未到时,Cookie能使用户在不键入密码和用户名的情况下进入曾经浏览过的一些站点</p>
+</li>
+<li><p>4、Cookie能帮助站点统计用户个人资料以实现各种各样的个性化服务</p>
+</li>
+</ul>
+<h2 id="2-cookie"><a href="#2-cookie" class="headerlink" title="2. cookie"></a>2. cookie</h2><h3 id="2-1-查看cookie"><a href="#2-1-查看cookie" class="headerlink" title="2.1 查看cookie"></a>2.1 查看cookie</h3><p><img src="https://images0.cnblogs.com/blog/450613/201412/081529469931522.jpg" alt="chrome下cookie查看"></p>
+<p>在chrome控制台中的resources选项卡中可以看到cookie的信息。</p>
+<blockquote>
+<p>一个域名下面可能存在着很多个cookie对象。</p>
+</blockquote>
+<h3 id="2-2-cookie字段解析"><a href="#2-2-cookie字段解析" class="headerlink" title="2.2 cookie字段解析"></a>2.2 cookie字段解析</h3><p><strong>name</strong>字段为一个cookie的名称。</p>
+<p><strong>value</strong>字段为一个cookie的值。</p>
+<p><strong>domain</strong>字段为可以访问此cookie的域名。</p>
+<blockquote>
+<p>1、<del>非顶级域名，如二级域名或者三级域名，设置的cookie的domain只能为顶级域名或者二级域名或者三级域名本身，不能设置其他二级域名的cookie，否则cookie无法生成。</del></p>
+</blockquote>
+<blockquote>
+<p>2、顶级域名只能设置domain为顶级域名，不能设置为二级域名或者三级域名，否则cookie无法生成。</p>
+</blockquote>
+<blockquote>
+<p>3、二级域名能读取设置了domain为顶级域名或者自身的cookie，不能读取其他二级域名domain的cookie。</p>
+<p>所以要想cookie在多个二级域名中共享，需要设置domain为顶级域名，这样就可以在所有二级域名里面或者到这个cookie的值了。</p>
+</blockquote>
+<blockquote>
+<p>4、顶级域名只能获取到domain设置为顶级域名的cookie，其他domain设置为二级域名的无法获取。</p>
+</blockquote>
+<p>   <strong>path</strong>字段为可以访问此cookie的页面路径。 比如domain是abc.com,path是/test，那么只有/test路径下的页面可以读取此cookie。</p>
+<blockquote>
+<p>domain+path =可以读取此cookie的url</p>
+</blockquote>
+<p><strong>expires/Max-Age</strong>字段为此cookie超时时间。<br>若设置其值为一个时间，那么当到达此时间后，此cookie失效。<strong>不设置的话默认值是Session，意思是cookie会和session一起失效</strong>。当浏览器关闭(不是浏览器标签页，而是整个浏览器) 后，此cookie失效。</p>
+<p><strong>Size</strong>字段为此cookie大小。</p>
+<p><strong>http</strong>字段为cookie的httponly属性。若此属性为true，则只有在http请求头中会带有此cookie的信息，而不能通过document.cookie来访问此cookie。</p>
+<p><strong>secure</strong>字段为设置是否只能通过https来传递此条cookie</p>
+<h3 id="2-3-cookie设置过期时间"><a href="#2-3-cookie设置过期时间" class="headerlink" title="2.3 cookie设置过期时间"></a>2.3 cookie设置过期时间</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cookie.setMaxAge(<span class="number">0</span>);<span class="comment">//不记录cookie</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cookie.setMaxAge(<span class="number">-1</span>);<span class="comment">//会话级cookie,关闭浏览器失效</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cookie.setMaxAge(<span class="number">60</span>*<span class="number">60</span>);<span class="comment">//过期时间为1小时</span></span><br></pre></td></tr></table></figure>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
