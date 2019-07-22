@@ -11,7 +11,7 @@
 
     <title>
         
-        git新操作备注 - ......
+        git新操作备注(1) - ......
         
     </title>
 
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-开个新分支"><span class="toc-text">1.开个新分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-代码迁移仓库（保留log）"><span class="toc-text">2.代码迁移仓库（保留log）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-前提"><span class="toc-text">2.1 前提</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-开始迁移"><span class="toc-text">2.2 开始迁移</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-1-情况1"><span class="toc-text">2.2.1 情况1</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-2-情况2"><span class="toc-text">2.2.2 情况2</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-删除本地分支"><span class="toc-text">3.删除本地分支</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-开个新分支"><span class="toc-text">1.开个新分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-代码迁移仓库（保留log）"><span class="toc-text">2.代码迁移仓库（保留log）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-前提"><span class="toc-text">2.1 前提</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-开始迁移"><span class="toc-text">2.2 开始迁移</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-1-情况1"><span class="toc-text">2.2.1 情况1</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-2-情况2"><span class="toc-text">2.2.2 情况2</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-删除本地分支"><span class="toc-text">3.删除本地分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-git查看镜像源"><span class="toc-text">4 git查看镜像源</span></a></li></ol>
 </div>
     
 </div>
@@ -119,7 +119,7 @@
 
 <div class="post-container">
     <div class="post-title">
-        git新操作备注
+        git新操作备注(1)
     </div>
 
     <div class="post-meta">
@@ -157,7 +157,7 @@
 <p> //把代码推到远程master分支上去</p>
 <p>有没有人好奇为什么是origin，而不是其他名字，比如git pull original master或者git pull origin2 master;</p>
 <p>解答上面的问题很简单，请在你的工程中输入</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">     git remote</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git remote</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="comment">//查看详情</span></span><br><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
 <p>发现了什么呢？<br>默认就有一个origin，代表远程仓库。origin是有地址，地址就是当前仓库的git地址，是个url哦。所以为什么git push origin master就自动相应的推到的远程仓库的master分支了。</p>
 <h4 id="2-2-开始迁移"><a href="#2-2-开始迁移" class="headerlink" title="2.2 开始迁移"></a>2.2 开始迁移</h4><p>下面是正确的操作步骤，(看准情况分类很重要，就两种)&lt;<br>不管哪种情况请从情况1开始看哈哈：</p>
 <h5 id="2-2-1-情况1"><a href="#2-2-1-情况1" class="headerlink" title="2.2.1 情况1"></a>2.2.1 情况1</h5><p><strong>B仓库是一个空仓库，除了默认的master分支，没有任何分支</strong>。把A的branch1,branch2,branch3…依次迁入B，B也就有branch1,branch2,branch3,</p>
@@ -221,7 +221,9 @@
 <li>将搜索出的结果传给删除函数</li>
 <li>所以我们可以得到：</li>
 </ul>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span><span class="title">|grep ‘yx201812‘ |</span>xargs git <span class="keyword">branch </span>-d</span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span><span class="title">|grep 'yx201812' |</span>xargs git <span class="keyword">branch </span>-d</span><br></pre></td></tr></table></figure>
+<h3 id="4-git查看镜像源"><a href="#4-git查看镜像源" class="headerlink" title="4 git查看镜像源"></a>4 git查看镜像源</h3><p>有时候<code>npm install</code>的下载sudu太慢会使用国内淘宝镜像源，有时候还需要切回npm的官方镜像源，那么如何查看呢。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查看镜像使用状态：</span></span><br><span class="line">npm get registry</span><br><span class="line"></span><br><span class="line"><span class="comment">//全局切换镜像： </span></span><br><span class="line">npm config set registry http:<span class="comment">//registry.npm.taobao.org/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//全局切换回官方源  </span></span><br><span class="line">npm config set registry http:<span class="comment">//www.npmjs.org</span></span><br></pre></td></tr></table></figure>
 
         
             <div class="donate-container">
