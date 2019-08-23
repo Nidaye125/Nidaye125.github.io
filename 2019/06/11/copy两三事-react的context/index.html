@@ -136,7 +136,7 @@
 </span>
 </span>
     </div>
-    <div class="post-content ">
+    <div class="post-content no-indent">
         <h2 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1.摘要"></a>1.摘要</h2><p> 前几天学习了rc-tree-select的组件源码，学习一些之前不知道的写法。其中一点就是：在父组件(index.js-&gt;selector.js)中定义了一系列的方法，然后在下面子组件中(singleSelector.js、multipleSelector.js、popup.js)中直接使用父组件的写的这些方法</p>
 <p>其实不用context写法也可以实现这个功能，只要将这个方法作为props传进去就可以，但是多传几层（如子组件下还有子子组件…），处理起来很麻烦。</p>
 <h3 id="1-1-对比props和context"><a href="#1-1-对比props和context" class="headerlink" title="1.1 对比props和context"></a>1.1 对比props和context</h3><p>React可以轻松地通过组件来跟踪数据流。</p>

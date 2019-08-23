@@ -136,7 +136,7 @@
 </span>
 </span>
     </div>
-    <div class="post-content ">
+    <div class="post-content no-indent">
         <p>output.library和output.libraryTarget属性可能大家都会比较陌生，因为一般如果只在项目中使用 webpack 不需要关注这两个属性，但是如果是开发类库，那么这两个属性就是必须了解的。说白了就是发包</p>
 <h2 id="1简介"><a href="#1简介" class="headerlink" title="1简介"></a>1简介</h2><p>回想一下，当我们引入别人开发的类库时有几种方式？下面假设我们引入一个demo方法：</p>
 <h3 id="1-1-传统方式：script标签"><a href="#1-1-传统方式：script标签" class="headerlink" title="1.1.传统方式：script标签"></a>1.1.传统方式：script标签</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;script src=<span class="string">"demo.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script&gt;demo();<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>

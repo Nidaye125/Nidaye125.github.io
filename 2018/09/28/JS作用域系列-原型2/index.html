@@ -136,14 +136,14 @@
 </span>
 </span>
     </div>
-    <div class="post-content ">
+    <div class="post-content no-indent">
         <p><em>proto</em>是什么含义，以及<em>proto</em>与prototype是什么关系，下面就是解释</p>
 <a id="more"></a>
 <h2 id="1-proto"><a href="#1-proto" class="headerlink" title="1 proto"></a>1 <em>proto</em></h2><h3 id="1-1-proto指向原型对象"><a href="#1-1-proto指向原型对象" class="headerlink" title="1.1 proto指向原型对象"></a>1.1 <em>proto</em>指向原型对象</h3><p>JS 在创建对象（不论是普通对象还是函数对象）的时候，都有一个叫做<strong>proto</strong> 的内置属性，<strong>用于指向创建它的构造函数的原型对象</strong>。</p>
 <p>对象 person1 有一个<strong>proto</strong>属性，创建它的构造函数是 Person，构造函数的原型对象是 Person.prototype ，所以：</p>
 <figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">person1</span>.__proto__ == <span class="type">Person</span>.proto<span class="keyword">type</span></span><br></pre></td></tr></table></figure>
 <p>请看下图</p>
-<p><img src="https://note.youdao.com/favicon.ico" alt="《JavaScript 高级程序设计》的图 6-1"></p>
+<p><img src="https://raw.githubusercontent.com/XYooo/image/master/yuanxing1.jpg" alt="流程图"></p>
 <p>根据上面这个连接图，我们能得到：</p>
 <figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Person</span>.prototype.constructor == <span class="keyword">Person</span>;</span><br><span class="line">person1.__proto__ == <span class="keyword">Person</span>.prototype;</span><br><span class="line">person1.constructor == <span class="keyword">Person</span>;</span><br></pre></td></tr></table></figure>
 <p>不过，要明确的真正重要的一点就是，这个连接存在于实例（person1）与构造函数（Person）的原型对象（Person.prototype）之间，而不是存在于实例（person1）与构造函数（Person）之间。</p>
